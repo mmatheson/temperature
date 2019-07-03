@@ -30,7 +30,7 @@ def get_temp():
 def collect_temps(location):
     while True:
         temp = get_temp() 
-	temp["location"] = location
+        temp["location"] = location
         print(temp)
         hdrs = {"X-Honeycomb-Team": "beb254cd3be6f81f4b38cdea524bdeaf"}
         try:
