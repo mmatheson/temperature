@@ -1,6 +1,7 @@
 import time
 import json
 import requests
+import argparse
 
 TEMP_SENSOR="/sys/bus/w1/devices/28-000008e233e8/w1_slave"
 HONEYCOMB_URL="https://api.honeycomb.io/1/events/p70"
@@ -26,9 +27,10 @@ def get_temp():
     return temperature_data
 
 
-def collect_temps():
+def collect_temps(location):
     while True:
         temp = get_temp() 
+	temp["location"] = location
         print(temp)
         hdrs = {"X-Honeycomb-Team": "beb254cd3be6f81f4b38cdea524bdeaf"}
         try:
@@ -40,5 +42,9 @@ def collect_temps():
 
 
 if __name__ == "__main__":
-    collect_temps()
+    parser = argparse.ArgumentParser(description='Set a location for these samples')
+    parser.add_argument('--location', dest='loc', help='set the location for the samples')
+    args = parser.parse_args()
+    loc = args.loc
+    collect_temps(loc)
 
