@@ -1,0 +1,44 @@
+import time
+import json
+import requests
+
+TEMP_SENSOR="/sys/bus/w1/devices/28-000008e233e8/w1_slave"
+HONEYCOMB_URL="https://api.honeycomb.io/1/events/p70"
+
+def read_sensor():
+    with open(TEMP_SENSOR, 'r') as sensor:
+        return sensor.readlines()
+    
+def parse_sensor_output(sensor_output):
+    temperature = sensor_output[1].split('t=')[1]
+    
+    # Check that the temperature is not invalid
+    if temperature != -1:
+        temperature_celsius = round(float(temperature) / 1000.0, 1)
+        temperature_fahrenheit = round((temperature_celsius * 1.8) + 32.0, 1)
+        return {'celsius': temperature_celsius, 'fahrenheit': temperature_fahrenheit, 'ts':time.time()}
+
+    return "Failed to parse"
+
+def get_temp():
+    sensor_data = read_sensor()
+    temperature_data = parse_sensor_output(sensor_data)
+    return temperature_data
+
+
+def collect_temps():
+    while True:
+        temp = get_temp() 
+        print(temp)
+        hdrs = {"X-Honeycomb-Team": "beb254cd3be6f81f4b38cdea524bdeaf"}
+        try:
+            requests.post(HONEYCOMB_URL, data=json.dumps(temp), headers=hdrs, timeout=100)
+        except Exception as E:
+            print("Failed to post request: {} (time: {})".format(E, time.time()))
+
+        time.sleep(5 * 60)
+
+
+if __name__ == "__main__":
+    collect_temps()
+
