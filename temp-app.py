@@ -32,7 +32,7 @@ def collect_temps(location):
         temp = get_temp() 
         temp["location"] = location
         print(temp)
-        hdrs = {"X-Honeycomb-Team": "d1604e424cca01456f506fcc5a0f69af"}
+        hdrs = {"X-Honeycomb-Team": "beb254cd3be6f81f4b38cdea524bdeaf"}
         try:
             requests.post(HONEYCOMB_URL, data=json.dumps(temp), headers=hdrs, timeout=100)
         except Exception as E:
