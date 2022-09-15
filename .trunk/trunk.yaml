@@ -5,7 +5,7 @@ api:
   address: api.dev.trunk-staging.io:5022
 merge:
   required_statuses:
-    - CI
+    - build 
 lint:
   enabled:
     - actionlint@1.6.15
