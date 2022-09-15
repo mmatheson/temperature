@@ -1,6 +1,11 @@
 version: 0.1
 cli:
   version: 0.17.0-beta
+api:
+  address: api.dev.trunk-staging.io:5022 
+merge:
+  required_statuses:
+    - CI
 lint:
   enabled:
     - black-py@21.10b0
