@@ -8,7 +8,7 @@ cli:
   version: 0.17.0-beta
 merge:
   required_statuses:
-    - build
+    - buildkite/temperature-pr
 lint:
   enabled:
     - actionlint@1.6.15
