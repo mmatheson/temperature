@@ -1,3 +1,3 @@
 # Temperature
 
-This repo is not maintained
+This repo is not maintained.
