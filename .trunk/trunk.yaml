@@ -6,6 +6,9 @@ plugins:
       uri: https://github.com/trunk-io/plugins
 cli:
   version: 0.17.0-beta
+merge:
+  required_statuses:
+    - build
 lint:
   enabled:
     - actionlint@1.6.15
