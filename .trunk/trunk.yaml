@@ -8,7 +8,7 @@ cli:
   version: 0.17.0-beta
 merge:
   required_statuses:
-    - buildkite/merge
+    - buildkite/merge-check
 lint:
   enabled:
     - actionlint@1.6.15
