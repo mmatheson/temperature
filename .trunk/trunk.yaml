@@ -9,6 +9,10 @@ cli:
 merge:
   required_statuses:
     - build
+
+api:
+  address: api.trunk-staging.io:8443
+
 lint:
   enabled:
     - actionlint@1.6.15
