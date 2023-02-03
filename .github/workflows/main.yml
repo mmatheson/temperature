@@ -27,3 +27,6 @@ jobs:
       # run tests
       - name: Run Tests
         run: ./test.sh
+
+      - name: Run Tests Again
+        run: ./test.ts
