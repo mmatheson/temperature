@@ -34,6 +34,7 @@ jobs:
       - name: Run Tests Again
         run: ./test.sh
   job1:
+    name: trunk-check-${{ inputs.check_suite_id }}
     runs-on: ubuntu-latest
     # Map a step output to a job output
     outputs:
