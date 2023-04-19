@@ -2,10 +2,10 @@ version: 0.1
 plugins:
   sources:
     - id: trunk
-      ref: v0.0.3
+      ref: v0.0.14
       uri: https://github.com/trunk-io/plugins
 cli:
-  version: 0.17.0-beta
+  version: 1.8.0
 merge:
   required_statuses:
     - build
@@ -27,3 +27,11 @@ lint:
     - gitleaks@7.6.1
     - isort@5.10.1
     - pylint@2.14.5
+actions:
+  enabled:
+    - trunk-upgrade-available
+runtimes:
+  enabled:
+    - go@1.19.5
+    - node@18.12.1
+    - python@3.10.8
