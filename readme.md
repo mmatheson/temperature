@@ -2,8 +2,6 @@
 
 This repo is not maintained.
 
-
 ## Contributing
 
-See contributing.md
-
+See contributing.md!
