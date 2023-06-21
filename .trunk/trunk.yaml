@@ -9,10 +9,7 @@ cli:
 merge:
   required_statuses:
     - build
-
-api:
-  address: api.trunk-staging.io:8443
-
+    
 lint:
   enabled:
     - markdownlint@0.35.0
