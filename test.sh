@@ -1,4 +1,4 @@
 echo "running tests...\n"
-sleep 20 
+sleep 2
 echo "Done.\n"
 exit 0
