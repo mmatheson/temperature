@@ -33,6 +33,14 @@ jobs:
 
       - name: Run Tests Again
         run: ./test.sh
+        
+      - name: Testing trunk breakpoint
+        uses: trunk-io/breakpoint@v1
+        with:
+          breakpoint_id: run-tests
+          run: ./test.sh
+          trunk_token: ${{ secrets.TRUNK_REPO_TOKEN }}
+
   job1:
     name: trunk-check-${{ inputs.check_suite_id }}
     runs-on: ubuntu-latest
