@@ -37,9 +37,9 @@ jobs:
       - name: Testing trunk breakpoint
         uses: trunk-io/breakpoint@v1
         with:
-          breakpoint_id: run-tests
+          breakpoint-id: run-tests
           run: ./test.sh
-          trunk_token: ${{ secrets.TRUNK_REPO_TOKEN }}
+          trunk-token: ${{ secrets.TRUNK_REPO_TOKEN }}
 
   job1:
     name: trunk-check-${{ inputs.check_suite_id }}
