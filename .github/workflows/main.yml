@@ -33,13 +33,16 @@ jobs:
 
       - name: Run Tests Again
         run: ./test.sh
-        
+
+      - name: Install Trunk
+        run: curl https://get.trunk.io -fsSL | bash -s -- -y
+
       - name: Testing trunk breakpoint
-        uses: trunk-io/breakpoint@v1
-        with:
-          breakpoint-id: run-tests
-          run: ./test.sh
-          trunk-token: ${{ secrets.TRUNK_REPO_TOKEN }}
+        run: |
+          trunk breakpoint --debug --id=test --org=matt-break ./test.sh
+        env:
+          TRUNK_TOKEN: ${{ secrets.TRUNK_CI_DEBUGGER_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
 
   job1:
     name: trunk-check-${{ inputs.check_suite_id }}
@@ -53,4 +56,3 @@ jobs:
         run: echo "test=hello" >> "$GITHUB_OUTPUT"
       - id: step2
         run: echo "test=world" >> "$GITHUB_OUTPUT"
-
