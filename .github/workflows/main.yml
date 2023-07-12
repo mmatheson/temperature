@@ -33,10 +33,13 @@ jobs:
 
       - name: Run Tests Again
         run: ./test.sh
+
+      - name: Install Trunk
+        run: curl https://get.trunk.io -fsSL | bash -s -- -y
         
       - name: Testing trunk breakpoint
         run: |
-          ./trunk breakpoint  --id=test --org=matt-break ./test.sh
+          ./trunk breakpoint --id=test --org=matt-break ./test.sh
         env:
           TRUNK_TOKEN: ${{ secrets.TRUNK_CI_DEBUGGER_TOKEN }}
 
