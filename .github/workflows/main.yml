@@ -39,7 +39,7 @@ jobs:
         
       - name: Testing trunk breakpoint
         run: |
-          ./trunk breakpoint --id=test --org=matt-break ./test.sh
+          trunk breakpoint --id=test --org=matt-break ./test.sh
         env:
           TRUNK_TOKEN: ${{ secrets.TRUNK_CI_DEBUGGER_TOKEN }}
 
