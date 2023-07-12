@@ -35,11 +35,12 @@ jobs:
         run: ./test.sh
         
       - name: Testing trunk breakpoint
-        uses: trunk-io/breakpoint@v1
-        with:
-          breakpoint-id: run-tests
-          run: ./test.sh
-          trunk-token: ${{ secrets.TRUNK_REPO_TOKEN }}
+        run: |
+          trunk breakpoint  --id=test --org=matt-break -- ./test.sh
+        env:
+          TRUNK_GITHUB_CONTEXT: ${{ toJSON(github) }}
+          TRUNK_TOKEN: ${{ secrets.TRUNK_REPO_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
 
   job1:
     name: trunk-check-${{ inputs.check_suite_id }}
