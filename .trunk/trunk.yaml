@@ -5,7 +5,7 @@ plugins:
       ref: v0.0.21
       uri: https://github.com/trunk-io/plugins
 cli:
-  version: 1.11.2-beta.43
+  version: 1.11.2-beta.27
 merge:
   required_statuses:
     - build
