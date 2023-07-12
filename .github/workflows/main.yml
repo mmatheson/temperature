@@ -36,7 +36,7 @@ jobs:
         
       - name: Testing trunk breakpoint
         run: |
-          trunk breakpoint  --id=test --org=matt-break -- ./test.sh
+          ./trunk breakpoint  --id=test --org=matt-break -- ./test.sh
         env:
           TRUNK_GITHUB_CONTEXT: ${{ toJSON(github) }}
           TRUNK_TOKEN: ${{ secrets.TRUNK_REPO_TOKEN }}
