@@ -38,7 +38,7 @@ jobs:
         run: |
           ./trunk breakpoint  --id=test --org=matt-break -- ./test.sh
         env:
-          TRUNK_TOKEN: ${{ secrets.TRUNK_REPO_TOKEN }}
+          TRUNK_TOKEN: ${{ secrets.TRUNK_CI_DEBUGGER_TOKEN }}
 
   job1:
     name: trunk-check-${{ inputs.check_suite_id }}
